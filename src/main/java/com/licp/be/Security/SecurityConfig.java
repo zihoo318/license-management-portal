@@ -44,6 +44,12 @@ public class SecurityConfig {
                                         .requestMatchers("/", "/index.html").permitAll()
                                         .requestMatchers("/api/**").authenticated()
                                         .requestMatchers("/admin/**").hasRole("ADMIN") // 일단 임시로..
+                                        .requestMatchers( // swagger
+                                                "/v3/api-docs/**",
+                                                "/v3/api-docs/swagger-config",
+                                                "/swagger-ui/**",
+                                                "/swagger-ui.html"
+                                        ).permitAll()
                                         .anyRequest().permitAll()
                         );
              
